@@ -1,0 +1,26 @@
+// .devcontainer/devcontainer.json
+{
+  "name": "MERN Stack Dev Environment",
+  "image": "mcr.microsoft.com/devcontainers/universal:latest",
+  "features": {
+    // Ensure Node.js is installed
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts" // Or specify a version like "18", "20"
+    }
+    // If you need other tools, add them here. E.g., Python:
+    // "ghcr.io/devcontainers/features/python:1": {}
+  },
+  "forwardPorts": [3000, 5000], // Common ports for React (3000) and Express (5000)
+  "postCreateCommand": "npm install --prefix client && npm install --prefix server", // Install dependencies in both folders
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "streetsidesoftware.code-spell-checker"
+        // Add any other VS Code extensions you like for web dev
+      ]
+    }
+  },
+  "remoteUser": "codespace" // Recommended user for permissions
+}
